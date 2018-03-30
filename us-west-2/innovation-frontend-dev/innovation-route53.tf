@@ -16,15 +16,6 @@ module "cordachartinternal-recordset" {
   alias_zone_id = "Z1H1FL5HABSF5"
 }
 
-module "dns-alb-recordset" {
-  source        = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-route53/innovation-route53-alias-record"
-  zone_id       = ["${var.route53_publiczone}", "${var.route53_privatezone}"]
-  name          = "${var.env}.${var.domain_name}"
-  type          = "A"
-  alias_name    = "${module.alb.alb_dns_name}"
-  alias_zone_id = "Z1H1FL5HABSF5"
-}
-
 module "themescapemaster-recordset" {
   source  = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-route53/innovation-route53-record"
   zone_id = ["${var.route53_privatezone}"]

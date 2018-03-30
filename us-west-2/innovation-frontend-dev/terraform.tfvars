@@ -1,7 +1,7 @@
 vpc_id = "vpc-c2447ca5"
-AWS_ACCESS_KEY=
-AWS_SECRET_KEY=
-env="dev"
+AWS_ACCESS_KEY=""
+AWS_SECRET_KEY=""
+env="prod"
 region="us-west-2"
 eelb_security_group= "sg-07b3a97c"
 bastion_security_group= "sg-35f76b4f"

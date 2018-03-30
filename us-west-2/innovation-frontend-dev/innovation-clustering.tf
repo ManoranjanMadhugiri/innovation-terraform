@@ -46,4 +46,5 @@ module "clustering_listener-rule_https" {
 #   min_size           = 1
 #   max_size           = 1
 #   target_group_arns  = ["${module.clustering_targetgroup.alb_target_arn}"]
-}
+# }
+

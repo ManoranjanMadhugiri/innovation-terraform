@@ -52,11 +52,11 @@ module "customer_listener_rule_https" {
 #     "value"               = "${var.env}:customer"
 #     "propagate_at_launch" = true
 #   }]
-}
+# }
 
 # Adding customer_security_group to dynomite_manager_security_group
 module "dynomite_manager-security_group_rule" {
-  source                 = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-frontend-security-groups/innovation-frontend-security-groups-rules"
+  source                 = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-frontend-security-groups/innovation-frontend-security-groups-rules/inbound_rules"
   source_security_groups = ["${module.innovation-customer-security_group.security_group_id}"]
   to_ports               = [8080, 8101, 8102]
   from_ports             = [8080, 8101, 8101]
@@ -65,7 +65,7 @@ module "dynomite_manager-security_group_rule" {
 }
 
 module "systran-security_group_rule" {
-  source                 = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-frontend-security-groups/innovation-frontend-security-groups-rules"
+  source                 = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-frontend-security-groups/innovation-frontend-security-groups-rules/inbound_rules"
   source_security_groups = ["${module.innovation-customer-security_group.security_group_id}"]
   to_ports               = [8903, 8904]
   from_ports             = [8903, 8904]

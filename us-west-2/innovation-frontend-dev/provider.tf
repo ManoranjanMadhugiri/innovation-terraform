@@ -7,7 +7,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "clarivate-innovate-dev-us-west-2-di-terraform-state"
-    key    = "dev/derwentinnovation/terraform.tfstate"
+    key    = "prod/derwentinnovation/terraform.tfstate"
     region = "us-west-2"
 
     //dynamodb_table="${aws_dynamodb_table.innovation-dev-infrastructure_statelock.id}"
@@ -30,3 +30,4 @@ terraform {
 #     name = "state lock table"
 #   }
 # }
+

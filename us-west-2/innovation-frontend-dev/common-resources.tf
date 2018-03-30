@@ -17,7 +17,7 @@ module "innovation-exporter-security_group" {
 }
 
 module "innovation-exporter-security_group_rule" {
-  source                 = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-frontend-security-groups/innovation-frontend-security-groups-rules"
+  source                 = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-frontend-security-groups/innovation-frontend-security-groups-rules/inbound_rules"
   source_security_groups = ["${var.eelb_security_group}"]
   to_ports               = [8080, 9088, 8081]
   from_ports             = [8080, 9088, 8081]
@@ -33,7 +33,7 @@ module "innovation-customer-security_group" {
 }
 
 module "innovation-customer-security_group_rule" {
-  source                 = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-frontend-security-groups/innovation-frontend-security-groups-rules"
+  source                 = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-frontend-security-groups/innovation-frontend-security-groups-rules/inbound_rules"
   source_security_groups = ["${var.eelb_security_group}", "${module.innovation-exporter-security_group.security_group_id}"]
   to_ports               = [81, 81, 80, 80, 9000, 9000, 8999, 8999]
   from_ports             = [81, 81, 80, 80, 9000, 9000, 8999, 8999]
@@ -49,7 +49,7 @@ module "innovation-frontapp-security_group" {
 }
 
 module "innovation-frontapp-security_group_rule" {
-  source                 = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-frontend-security-groups/innovation-frontend-security-groups-rules"
+  source                 = "git@github.com:ManoranjanMadhugiri/innovation-terraform-modules.git//innovation-frontend-security-groups/innovation-frontend-security-groups-rules/inbound_rules"
   source_security_groups = ["${var.eelb_security_group}"]
   to_ports               = [8080]
   from_ports             = [8080]
